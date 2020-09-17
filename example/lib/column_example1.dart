@@ -50,12 +50,23 @@ class _ColumnExample1State extends State<ColumnExample1> {
     return ReorderableColumn(
       header: Text('THIS IS THE HEADER ROW'),
       footer: Text('THIS IS THE FOOTER ROW'),
+      underlyingWidget: Container(
+        width: 100,
+        height: 50,
+        color: Colors.amber,
+      ),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: _rows,
       onReorder: _onReorder,
       onNoReorder: (int index) {
         //this callback is optional
-        debugPrint('${DateTime.now().toString().substring(5, 22)} reorder cancelled. index:$index');
+        debugPrint(
+            '${DateTime.now().toString().substring(5, 22)} reorder cancelled. index:$index');
+      },
+      onReorderStarted: (int index) {
+        //this callback is optional
+        debugPrint(
+            '${DateTime.now().toString().substring(5, 22)} reorder started. index:$index');
       },
     );
   }
