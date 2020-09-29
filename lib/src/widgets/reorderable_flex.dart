@@ -873,19 +873,14 @@ class _ReorderableFlexContentState extends State<_ReorderableFlexContent>
 //        controller: _scrollController,
 //      );
 
-    if (widget.scrollController == null) {
-      return SingleChildScrollView(
+    return SingleChildScrollView(
 //      key: _contentKey,
-        scrollDirection: widget.scrollDirection,
-        child: (widget.buildItemsContainer ?? defaultBuildItemsContainer)(
-            context, widget.direction, wrappedChildren),
-        padding: widget.padding,
-        controller: _scrollController,
-      );
-    } else {
-      return (widget.buildItemsContainer ?? defaultBuildItemsContainer)(
-          context, widget.direction, wrappedChildren);
-    }
+      scrollDirection: widget.scrollDirection,
+      child: (widget.buildItemsContainer ?? defaultBuildItemsContainer)(
+          context, widget.direction, wrappedChildren),
+      padding: widget.padding,
+      controller: _scrollController,
+    );
 
 //    });
   }
